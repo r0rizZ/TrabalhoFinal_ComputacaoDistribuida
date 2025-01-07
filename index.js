@@ -1,10 +1,10 @@
+//Iniciar Express
 var express = require("express");
 var app = express();
 
-app.get("/", function (req, res) {
-  res.send("Hello World!");
-});
+//SupaBase
+const createClient = require('@supabase/supabase-js');
 
-app.listen(8000, function () {
-  console.log("Example app listening on port 8000!");
-});
+const supabaseUrl = 'https://avvyhaqualyfoehcpefd.supabase.co';
+const supabaseKey = process.env.SUPABASE_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
