@@ -1,0 +1,98 @@
+/* Estilos Gerais */
+body {
+    background: url('../img/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+/* Container principal */
+.container {
+    max-width: 700px;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    max-height: 90vh; /* Limita a altura máxima para caber na tela */
+    overflow-y: auto; /* Adiciona rolagem apenas no eixo vertical */
+    position: relative; /* Mantém os elementos fixos dentro do contêiner */
+}
+
+/* Título */
+h1 {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 3.5rem; /* Aumenta o tamanho da fonte */
+    color: #fff;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Estilo do Input */
+#form-input {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: 90%; /* Reduz a largura relativa ao container */
+    max-width: 500px; /* Define um limite máximo para a largura */
+    padding: 15px; /* Preenchimento interno */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+#form-input:focus {
+    border-color: #418a8a;
+    outline: none;
+}
+
+
+/* Estilo do Botão */
+#form-btn {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 15px; /* Aumenta o preenchimento do botão */
+    background-color: #ff0800;
+    color: white;
+    border: none;
+    border-radius: 10px; /* Bordas mais arredondadas */
+    font-size: 1.3rem; /* Aumenta o tamanho da fonte */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#form-btn:hover {
+    background-color: #ff3b34;
+}
+
+/* Estilo para as informações do filme */
+#informacoes-filme {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+/* Estilo para o separador */
+.divider {
+    border-top: 2px solid #ff0800; /* Linha divisória laranja */
+    margin: 20px 0;
+}
+
+/* Estilo para os filmes pesquisados */
+.filme-card {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: left;
+}
