@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script type="text/javascript" src="script.js" defer></script>
+    <title>Pesquisar Filme</title>
+    <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="js/script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Nome do Filme:</h1>
-    <input id="form-input" type="text">
-    <button type="button" id="form-btn">Pesquisar</button>
-    <br><br>
-    <p id="informacoes-filme"></p>
+    <div class="container">
+        <h1>Pesquisar Filmes</h1>
+        <input id="form-input" type="text" class="form-control" placeholder="Nome do Filme">
+        <button type="button" id="form-btn" class="btn btn-primary">Pesquisar</button>
+        <br><br>
+        <p id="informacoes-filme"></p>
+    </div>
 </body>
 </html>
