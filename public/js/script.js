@@ -1,5 +1,35 @@
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('form-btn').addEventListener('click', async function() {
+        // Carregar histórico de filmes ao carregar a página
+        fetch('/api/history')
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                // Preencher a tabela com os dados
+                const tableBody = document.getElementById('history-table-body');
+                data.forEach(filme => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${filme.titulo}</td>
+                        <td>${filme.ano}</td>
+                        <td>${filme.diretor}</td>
+                        <td>${filme.imdbRating}</td>
+                        <td>${filme.ip_utilizador}</td>
+                        <td>${filme.timestamp}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } else {
+                alert('Nenhum dado encontrado.');
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao carregar histórico:', error);
+            alert('Erro ao carregar histórico.');
+        });
+
+
+
         const nomeFilme = document.getElementById("form-input").value.trim();
 
         if (!nomeFilme) {
@@ -42,7 +72,10 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             document.getElementById('informacoes-filme').appendChild(filmeDiv);
-            
+
+            // Carregar o histórico de filmes
+            loadHistory();
+
         } catch (error) {
             console.error('Erro ao buscar filme:', error);
             alert("Erro ao buscar informações do filme.");

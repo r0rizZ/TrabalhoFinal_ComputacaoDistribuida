@@ -79,6 +79,29 @@ app.get('/api/search', async (req, res) => {
     }
 });
 
+// Rota para obter o histórico de requisições
+app.get('/api/history', async (req, res) => {
+    try {
+        // Buscar todos os filmes da tabela
+        const { data, error } = await supabase.from('filmes').select('*');
+
+        console.log('Dados retornados:', data);  // Verifique o que está retornando
+        console.log('Erro:', error);  // Se houver erro, ele será mostrado aqui
+
+        if (error) {
+            console.error('Erro ao buscar histórico de filmes:', error);
+            return res.status(500).json({ error: 'Erro ao carregar histórico de filmes.' });
+        }
+
+        return res.json(data); // Retorna os dados para o front-end
+
+
+    } catch (error) {
+        console.error('Erro ao buscar histórico de filmes:', error);
+        return res.status(500).json({ error: 'Erro ao carregar histórico de filmes.' });
+    }
+});
+
 // Iniciar o servidor
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
