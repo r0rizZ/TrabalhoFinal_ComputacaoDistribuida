@@ -1,4 +1,3 @@
-// Inicialização
 const express = require('express');
 const axios = require('axios');
 const { createClient } = require('@supabase/supabase-js');
@@ -14,10 +13,9 @@ const supabaseUrl = 'https://hawxsfoeqdrvlvxncqsj.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhhd3hzZm9lcWRydmx2eG5jcXNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc5OTUzMTIsImV4cCI6MjA1MzU3MTMxMn0.Ydwrl_tcaY-SgK8Wfw9dAx1rCPYdI1H_E41f-orB4XY';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// Utilizar ficheiros da pasta public (HTML, CSS, JS)
 app.use(express.static('public'));
 
-// Rota para realizar a pesquisa
+// Pesquisar Filmes
 app.get('/api/search', async (req, res) => {
     const { titulo } = req.query;
 
@@ -26,7 +24,7 @@ app.get('/api/search', async (req, res) => {
     }
 
     try {
-        // OMDb API - Buscar informações básicas do filme
+        // OMDb API
         const urlOmdb = `http://www.omdbapi.com/?t=${titulo}&apikey=${omdbApiKey}`;
         const responseOmdb = await axios.get(urlOmdb);
         const filme = responseOmdb.data;
@@ -35,10 +33,8 @@ app.get('/api/search', async (req, res) => {
             return res.status(404).json({ error: `Filme não encontrado: ${titulo}` });
         }
 
-        // Obter o IP do utilizador
         const ipAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
-        // Criar o objeto com as informações do filme
         const informacoesFilme = {
             titulo: filme.Title,
             ano: filme.Year,
@@ -49,7 +45,7 @@ app.get('/api/search', async (req, res) => {
             ip_utilizador: ipAddress
         };
 
-        // TMDb API - Buscar imagem do filme
+        // TMDb API 
         const urlTmdbSearch = `https://api.themoviedb.org/3/search/movie?api_key=${tmdbApiKey}&query=${titulo}`;
         const responseTmdb = await axios.get(urlTmdbSearch);
 
@@ -63,14 +59,12 @@ app.get('/api/search', async (req, res) => {
             }
         }
         
-        // Inserir no Supabase
         const { error } = await supabase.from('filmes').insert([informacoesFilme]);
         if (error) {
             console.error('Erro ao salvar no Supabase:', error);
             return res.status(500).json({ error: 'Erro ao salvar filme no banco de dados.' });
         }
 
-        // Resposta final
         return res.json(informacoesFilme);
 
     } catch (error) {
@@ -79,30 +73,23 @@ app.get('/api/search', async (req, res) => {
     }
 });
 
-// Rota para obter o histórico de requisições
+// Histórico Pesquisas
 app.get('/api/history', async (req, res) => {
     try {
-        // Buscar todos os filmes da tabela
-        const { data, error } = await supabase.from('filmes').select('*');
-
-        console.log('Dados retornados:', data);  // Verifique o que está retornando
-        console.log('Erro:', error);  // Se houver erro, ele será mostrado aqui
+        const { data, error } = await supabase.from('filmes').select('*').order('timestamp', { ascending: false });
 
         if (error) {
-            console.error('Erro ao buscar histórico de filmes:', error);
-            return res.status(500).json({ error: 'Erro ao carregar histórico de filmes.' });
+            console.error('Erro ao buscar histórico do Supabase:', error);
+            return res.status(500).json({ error: 'Erro ao buscar histórico.' });
         }
 
-        return res.json(data); // Retorna os dados para o front-end
-
-
+        return res.json(data);
     } catch (error) {
-        console.error('Erro ao buscar histórico de filmes:', error);
-        return res.status(500).json({ error: 'Erro ao carregar histórico de filmes.' });
+        console.error('Erro ao processar a solicitação de histórico:', error);
+        return res.status(500).json({ error: 'Erro ao processar a solicitação de histórico.' });
     }
 });
 
-// Iniciar o servidor
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
 });

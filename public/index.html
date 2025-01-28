@@ -14,23 +14,25 @@
         <h1>Pesquisar Filmes</h1>
         <input id="form-input" type="text" class="form-control" placeholder="Nome do Filme">
         <button type="button" id="form-btn" class="btn btn-primary">Pesquisar</button>
+        <button type="button" id="btn-historico" class="btn btn-secondary">Ver Histórico</button>
         <br><br>
+        
         <p id="informacoes-filme"></p>
 
-        <!-- Histórico de Filmes -->
-        <h2>Histórico de Filmes</h2>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Título</th>
-                    <th>IP</th>
-                    <th>Timestamp</th>
-                </tr>
-            </thead>
-            <tbody id="historico">
-                <!-- As linhas do histórico serão preenchidas aqui -->
-            </tbody>
-        </table>
+        <div id="popup-historico" class="popup">
+            <div class="popup-content">
+                <span id="fechar-popup" class="fechar-popup">&times;</span>
+                <h2>Histórico de Pesquisas</h2>
+                <table id="popup-tabela-historico">
+                    <tr>
+                        <th>Filme</th>
+                        <th style="text-align: center;">IMDB Rating</th>
+                        <th style="text-align: center;">IP Utilizador</th>
+                        <th>Data Pesquisa</th>        
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 </html>

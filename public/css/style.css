@@ -1,4 +1,3 @@
-/* Estilos Gerais */
 body {
     background: url('../img/background.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -11,7 +10,6 @@ body {
     overflow: auto;
 }
 
-/* Container principal */
 .container {
     max-width: 700px;
     background: rgba(0, 0, 0, 0.85);
@@ -19,27 +17,24 @@ body {
     border-radius: 15px;
     box-sizing: border-box;
     text-align: center;
-    max-height: 90vh; /* Limita a altura máxima para caber na tela */
-    overflow-y: auto; /* Adiciona rolagem apenas no eixo vertical */
-    position: relative; /* Mantém os elementos fixos dentro do contêiner */
+    max-height: 90vh; 
+    overflow-y: auto; 
+    position: relative; 
 }
 
-/* Título */
 h1 {
     font-family: 'Brush Script MT', cursive;
-    font-size: 3.5rem; /* Aumenta o tamanho da fonte */
+    font-size: 3.5rem; 
     color: #fff;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
 }
 
-/* Estilo do Input */
 #form-input {
-    position: sticky;
     top: 0;
     z-index: 10;
-    width: 90%; /* Reduz a largura relativa ao container */
-    max-width: 500px; /* Define um limite máximo para a largura */
-    padding: 15px; /* Preenchimento interno */
+    width: 90%;
+    max-width: 500px; 
+    padding: 15px; 
     border: 1px solid #ddd;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -53,19 +48,14 @@ h1 {
     outline: none;
 }
 
-
-/* Estilo do Botão */
 #form-btn {
-    position: sticky;
-    top: 0;
-    z-index: 10;
     width: 100%;
-    padding: 15px; /* Aumenta o preenchimento do botão */
+    padding: 15px; 
     background-color: #ff0800;
     color: white;
     border: none;
-    border-radius: 10px; /* Bordas mais arredondadas */
-    font-size: 1.3rem; /* Aumenta o tamanho da fonte */
+    border-radius: 10px; 
+    font-size: 1.3rem; 
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -74,20 +64,17 @@ h1 {
     background-color: #ff3b34;
 }
 
-/* Estilo para as informações do filme */
 #informacoes-filme {
     margin-top: 20px;
     font-size: 1.2rem;
     color: #fff;
 }
 
-/* Estilo para o separador */
 .divider {
-    border-top: 2px solid #ff0800; /* Linha divisória laranja */
+    border-top: 2px solid #ff0800;
     margin: 20px 0;
 }
 
-/* Estilo para os filmes pesquisados */
 .filme-card {
     padding: 20px;
     background: rgba(255, 255, 255, 0.1);
@@ -95,4 +82,145 @@ h1 {
     color: #fff;
     margin-bottom: 20px;
     text-align: left;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 10px;
+}
+
+#tabela-historico {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+}
+
+#tabela-historico th, #tabela-historico td {
+    padding: 10px 15px;
+    color: #fff; 
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#tabela-historico th {
+    background-color: #ff0800;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+#tabela-historico tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05); 
+}
+
+#tabela-historico tr:last-child td {
+    border-bottom: none;
+}
+
+#tabela-historico tr:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: background-color 0.3s ease;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+
+.popup-content {
+    background-color: rgba(0, 0, 0, 0.85);
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 700px;
+    color: white;
+}
+
+.fechar-popup {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.fechar-popup:hover,
+.fechar-popup:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#popup-tabela-historico {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+}
+
+#popup-tabela-historico th, #popup-tabela-historico td {
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#popup-tabela-historico th {
+    background-color: #ff0800; 
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+#popup-tabela-historico tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+#popup-tabela-historico tr:last-child td {
+    border-bottom: none;
+}
+
+#popup-tabela-historico tr:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: background-color 0.3s ease;
+}
+
+#btn-historico {
+    width: 50%;
+    padding: 15px;
+    background-color: #ff3b34; 
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; 
+}
+
+#btn-historico:hover {
+    background-color: #ff0800;
+}
+
+#btn-historico:focus {
+    outline: none;
 }
