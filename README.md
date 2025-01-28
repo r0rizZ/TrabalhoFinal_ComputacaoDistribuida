@@ -32,16 +32,16 @@ cd TrabalhoFinal_ComputacaoDistribuida
 
 ```bash
 npm install
-npm install express axios @supabase/supabase-js
+npm install express axios @supabase/supabase-js dotenv
 ```
 
 ## 3. Configurar as credenciais das APIs e da Supabase
 
 ```bash
-const omdbApiKey = '906ec909';
-const tmdbApiKey = 'a48940ef464f8b07829cf8332f4e595f';
-const supabaseUrl = 'https://hawxsfoeqdrvlvxncqsj.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhhd3hzZm9lcWRydmx2eG5jcXNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc5OTUzMTIsImV4cCI6MjA1MzU3MTMxMn0.Ydwrl_tcaY-SgK8Wfw9dAx1rCPYdI1H_E41f-orB4XY';
+omdbApiKey = '906ec909';
+tmdbApiKey = 'a48940ef464f8b07829cf8332f4e595f';
+supabaseUrl = 'https://hawxsfoeqdrvlvxncqsj.supabase.co'
+supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhhd3hzZm9lcWRydmx2eG5jcXNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc5OTUzMTIsImV4cCI6MjA1MzU3MTMxMn0.Ydwrl_tcaYSgK8Wfw9dAx1rCPYdI1H_E41f-orB4XY';
 ```
 
 ## 4. Iniciar o servidor
