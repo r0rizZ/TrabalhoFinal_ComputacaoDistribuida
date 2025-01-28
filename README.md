@@ -52,6 +52,7 @@ node server.js
 
 # Estrutura do Projeto
 
+```bash
 /TrabalhoFinal_ComputacaoDistribuida
 |-- /public
 |   |-- index.html          # Página principal
@@ -61,3 +62,4 @@ node server.js
 |   |   |-- script.js       # Lógica JavaScript da página
 |-- server.js               # Servidor Node.js que interage com as APIs e o Supabase
 |-- package.json            # Dependências e scripts do projeto
+```
