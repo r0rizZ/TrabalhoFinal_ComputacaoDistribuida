@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const axios = require('axios');
 const { createClient } = require('@supabase/supabase-js');
@@ -5,12 +7,12 @@ const app = express();
 const PORT = 3000;
 
 // APIs
-const omdbApiKey = '906ec909';
-const tmdbApiKey = 'a48940ef464f8b07829cf8332f4e595f';
+const omdbApiKey = process.env.OMDB_API_KEY;
+const tmdbApiKey = process.env.TMDB_API_KEY;
 
 // Supabase
-const supabaseUrl = 'https://hawxsfoeqdrvlvxncqsj.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhhd3hzZm9lcWRydmx2eG5jcXNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc5OTUzMTIsImV4cCI6MjA1MzU3MTMxMn0.Ydwrl_tcaY-SgK8Wfw9dAx1rCPYdI1H_E41f-orB4XY';
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 app.use(express.static('public'));
