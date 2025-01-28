@@ -1,24 +1,47 @@
-# Projeto de Pesquisa de Filmes
+# CineLink
 
-Este é um projeto simples que utiliza duas APIs externas (OMDb API e TMDb API).
-A OMDb API procurar informações sobre filmes enquanto que a TMDb API procura o carta que corresponde a esse filme.
-Juntando as informações obtidas das duas APIs, os dados da pesquisa são armazenados numa base de dados Supabase.
+CineLink é uma solução inovadora desenvolvida no âmbito da Computação Distribuída, que utiliza duas APIs externas (OMDb API e TMDb API) para facilitar a pesquisa e visualização de informações sobre filmes, enquanto armazena dados relevantes numa base de dados Supabase. Este protótipo explora o potencial de integração com cinemas e utilizadores, permitindo a utilização de cartazes digitais e a análise de tendências cinematográficas com base no histórico de pesquisas. 
 
 # Tecnologias Utilizadas
 
-- **Node.js** - Para o servidor backend.
-- **Express.js** - Framework para Node.js para criação do servidor.
-- **Axios** - Biblioteca para fazer requisições HTTP.
-- **Supabase** - Serviço de base de dados baseado em PostgreSQL para armazenar os dados dos filmes e o histórico de buscas.
-- **OMDb API** - API para obter informações sobre filmes.
-- **TMDb API** - API para obter cartazes de filmes.
-- **HTML/CSS/JavaScript** - Para criar a interface do utilizador.
+- **Node.js** - Plataforma para execução de JavaScript no backend.
+- **Express.js** - Framework para Node.js utilizado para criar o servidor.
+- **Axios** - Biblioteca para requisições HTTP.
+- **Supabase** - Base de dados baseada em PostgreSQL para armazenar dados de filmes e o histórico de pesquisas.
+- **OMDb API** - API para obter informações detalhadas sobre filmes.
+- **TMDb API** - API utilizada para obter cartazes de filmes.
+- **HTML/CSS/JavaScript** - Tecnologias para a criação da interface do utilizador.
 
-# Funcionalidades
+# Funcionalidades do Protótipo
 
-- **Pesquisa de Filmes**: Através do campo de pesquisa de filmes, o utilizador pode procurar filmes e ver informações desse filme, como título, ano de lançamento, diretor, elenco, géneros e classificação do IMDB.
-- **Exibição de Cartazes**: O cartaz do filme é carregado através da API TMDb e é exibido junto das informações sobre o filme.
+- **Pesquisa de Filmes**: Os utilizadores podem pesquisar por filmes pelo título. Exibe informações detalhadas do filme, incluindo: Título Ano de lançamento Diretor Elenco Géneros Classificação no IMDb Cartaz (poster)
+- **Exibição de Cartazes**: O cartaz correspondente ao filme pesquisado é carregado através da TMDb API e exibido junto das informações do filme.
+- **Histórico de Pesquisas**:  Todas as pesquisas realizadas são armazenadas no Supabase, incluindo:
+  ```bash
+      - ID: Identificador único do registo.
+      - Título: Nome do filme pesquisado.
+      - Ano: Ano de lançamento do filme.
+      - Diretor: Nome do diretor do filme.
+      - Elenco: Principais atores do filme.
+      - Género: Géneros associados ao filme.
+      - IMDb Rating: Classificação do filme no IMDb.
+      - Cartaz: URL para o cartaz do filme.
+      - IP do Utilizador: Endereço IP de onde foi feita a pesquisa.
+      - Timestamp: Data e hora exatas da pesquisa.
+  ```
 
+# Vantagens do Projeto para os Cinemas
+
+- **Redução de Custos**: Substituição de cartazes físicos por exibição digital.
+- **Atualizações Automáticas**: Ecrãs digitais atualizados sem intervenção manual.
+- **Decisões Baseadas em Dados**: Análise do histórico de pesquisas para identificar tendências.
+
+# Vantagens do Projeto para os Cinemas
+
+- **Informações Centralizadas**: Acesso rápido a detalhes sobre filmes em exibição.
+- **Possibilidade de Votação**: Futura implementação de sistemas para votação de reexibições.
+- **Sugestões Personalizadas**: Planeamento para recomendações baseadas em localização e histórico.
+  
 # Configuração do Projeto
 
 ## 1. Clonar o repositório
@@ -35,13 +58,13 @@ npm install
 npm install express axios @supabase/supabase-js dotenv
 ```
 
-## 3. Configurar as credenciais das APIs e da Supabase
+## 3. Configurar as credenciais das APIs e da Supabase num ficheiro .env
 
 ```bash
-omdbApiKey = '906ec909';
-tmdbApiKey = 'a48940ef464f8b07829cf8332f4e595f';
-supabaseUrl = 'https://hawxsfoeqdrvlvxncqsj.supabase.co'
-supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhhd3hzZm9lcWRydmx2eG5jcXNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc5OTUzMTIsImV4cCI6MjA1MzU3MTMxMn0.Ydwrl_tcaYSgK8Wfw9dAx1rCPYdI1H_E41f-orB4XY';
+omdbApiKey = 'colocar_omdb_api_key';
+tmdbApiKey = 'colocar_tmdb_api_key';
+supabaseUrl = 'colocar_supabase_url'
+supabaseKey = 'colocar_supabase_key';
 ```
 
 ## 4. Iniciar o servidor
@@ -62,4 +85,18 @@ node server.js
 |   |   |-- script.js       # Lógica JavaScript da página
 |-- server.js               # Servidor Node.js que interage com as APIs e o Supabase
 |-- package.json            # Dependências e scripts do projeto
+|-- Dockerfile              # Definição da imagem Docker
 ```
+
+# APIs Utilizadas
+
+```bash
+-OMDb API: Proporciona informações detalhadas sobre filmes, incluindo título, elenco, diretor, entre outros.
+-TMDb API: Fornece cartazes de alta qualidade para os filmes.
+```
+
+## Realizado por:
+  **- Ricardo Faria**
+  **- Ricardo Rocha**
+  **- João Moreira**
+  **- Vítor Cunha**
